@@ -1,0 +1,94 @@
+{
+    "recipes":[
+        {
+            "title": "Rántotta",
+            "description": "Nincs mit magyarázni rajta.",
+            "ingredients": [
+                {
+                    "quantityType":"db",
+                    "quantity": "3",
+                    "ingredient":"tojás"
+                }
+            ],
+            "href":"https://www.mindmegette.hu/a-tokeletes-rantotta-8-titka-52255/",
+            "image":"https://cdn.loveandlemons.com/wp-content/uploads/2021/05/scrambled-eggs-500x375.jpg",
+            "vegetarian":"true"
+        },
+        {
+            "title": "Cukkinis fasírt",
+            "description": "Olcsó kaja, érdemes a piacról bevásárolni.",
+            "ingredients": [
+                {
+                    "quantityType":"g",
+                    "quantity": "750",
+                    "ingredient":"cukkini"
+                },
+                {
+                    "quantityType":"db",
+                    "quantity": "3",
+                    "ingredient":"tojás"
+                },
+                {
+                    "quantityType":"db",
+                    "quantity": "3",
+                    "ingredient":"fokhagyma"
+                }
+            ],
+            "href":"https://www.mindmegette.hu/cukkinifasirt.recept/",
+            "image":"https://www.mindmegette.hu/images/335/Social/lead_Social_cukkini-fasirt-recept.jpg",
+            "vegetarian":"true"
+        },
+        {
+            "title": "Lecsó",
+            "description": "Olcsó kaja, érdemes a piacról bevásárolni.",
+            "ingredients": [
+                {
+                    "quantityType":"db",
+                    "quantity": "6",
+                    "ingredient":"paradicsom"
+                },
+                {
+                    "quantityType":"db",
+                    "quantity": "10",
+                    "ingredient":"paprika"
+                },
+                {
+                    "quantityType":"db",
+                    "quantity": "3",
+                    "ingredient":"vöröshagyma"
+                }
+            ],
+            "href":"https://www.mindmegette.hu/lecso.recept/",
+            "image":"https://www.mindmegette.hu/images/238/L/lead_L_crop_201901161117_shutterstock_175506890.jpg",
+            "vegetarian":"true"
+        },
+        {
+            "title": "Zöldborsófőzelék",
+            "description": "Egyszerű elkészítés.",
+            "ingredients": [
+                {
+                    "quantityType":"g",
+                    "quantity": "1000",
+                    "ingredient":"zöldborsó"
+                },
+                
+                {
+                    "quantityType":"ek",
+                    "quantity": "2",
+                    "ingredient":"liszt"
+                },
+                {
+                    "quantityType":"ml",
+                    "quantity": "600",
+                    "ingredient":"tej"
+                },
+                {
+                    "ingredient":"olaj"
+                }
+            ],
+            "href":"https://www.mindmegette.hu/finom-zoldborsofozelek.recept/",
+            "image":"https://www.mindmegette.hu/images/230/L/lead_L_crop_201811101008_img_4306.jpg"
+        }
+    ]
+        
+}

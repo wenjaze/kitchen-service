@@ -1,0 +1,27 @@
+<div [ngClass]="recipeCard ? 'ingredients':''">
+  <div *ngFor="let ingredientItem of availableIngredients">
+    <div
+      [ngClass]="recipeCard ? 'recipeCard' : ''"
+      class="ingredient-card-main"
+    >
+      -
+      <div class="ingredient-container">
+        <span *ngIf="ingredientItem.quantity" class="amount">{{
+          ingredientItem.quantity
+        }}</span>
+        <span *ngIf="ingredientItem.quantityType" class="type"
+          >{{ ingredientItem.quantityType }}
+        </span>
+        <div class="quantity">{{ ingredientItem.ingredient }}</div>
+      </div>
+      <button
+        class="remove-button"
+        *ngIf="recipeCard"
+        mat-raised-button
+        (click)="removeIngredient(ingredientItem)"
+      >
+        -
+      </button>
+    </div>
+  </div>
+</div>

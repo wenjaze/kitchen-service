@@ -1,0 +1,47 @@
+<div class="button-separator">
+  <div class="ingredient-adder-main">
+    <div
+      *ngIf="this.selectedIngredient && this.selectedIngredient.quantityType"
+    >
+      <mat-form-field class="quantity-form" appearance="outline">
+        <input matInput [(ngModel)]="quantity" />
+      </mat-form-field>
+    </div>
+    <div
+      *ngIf="
+        !!this.selectedIngredient && !!this.selectedIngredient.quantityType
+      "
+      class="quantity"
+    >
+      {{ selectedIngredient.quantityType }}
+    </div>
+    <div>
+      <mat-form-field class="ingredient-form" appearance="outline">
+        <mat-select
+          [(ngModel)]="selectedIngredient"
+          name="ingredient"
+          (selectionChange)="ingredientChange()"
+        >
+          <mat-option
+            *ngFor="let ingredient of selectableIngredients"
+            [value]="ingredient"
+          >
+            {{ ingredient.ingredient }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <button
+    *ngIf="
+      !!this.selectedIngredient &&
+      ((this.selectedIngredient.quantityType && quantity) ||
+        !this.selectedIngredient.quantityType)
+    "
+    mat-raised-button
+    class="search-button"
+    (click)="addToAvailableIngredients()"
+  >
+    Alapanyag hozzáadása
+  </button>
+</div>
