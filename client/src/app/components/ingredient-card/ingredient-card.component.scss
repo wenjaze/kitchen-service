@@ -1,11 +1,7 @@
 .ingredient-card-main {
-    margin: 0 auto;
     display: flex;
     flex-direction: row;
-
-    color: white;
-    font-weight: 500;
-    padding: 5%;
+    justify-content: space-evenly;
 }
 
 .ingredients {
@@ -15,27 +11,28 @@
 .ingredient-container {
     padding: 2%;
     margin-left: 10px;
+    width: 100%;
 }
 
 .recipeCard {
     border-bottom: 1px solid white;
     justify-content: space-between;
-    background-color: rgba(73, 159, 83,1.0);
+    background-color: rgba(73, 159, 83, 1);
 }
 
 .remove-button {
-    color: rgba(73, 159, 83,1.0);
-    float: right;
+    color: rgba(73, 159, 83, 1);
+    position: relative;
     font-size: 2em;
+    height: 2%;
+    width: 2%;
 }
 
 .quantity {
-    font-weight:400;
+    font-weight: 400;
     font-size: 1.4em;
 }
 
 .amount {
-    
     font-size: 1.4em;
-    
 }

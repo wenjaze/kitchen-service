@@ -5,21 +5,29 @@
 }
 
 .recipe-search-main {
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
     display: flex;
+    padding: 2%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .search-button {
     margin:0 auto;
     width: 50%;
     color: rgba($color: rgb(73, 159, 83), $alpha: 1);
-    margin-top: 0.6vh;
-    margin-bottom: 0.5vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .recipes-counter {
     margin: 0 auto;
     color: rgb(73, 159, 83);
+}
+
+
+.ingredient-card-component {
+    width: 30%;
+    height: 10%;
 }

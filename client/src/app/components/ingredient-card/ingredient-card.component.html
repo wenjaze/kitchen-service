@@ -6,12 +6,13 @@
     >
       -
       <div class="ingredient-container">
-        <span *ngIf="ingredientItem.quantity" class="amount">{{
+        <div *ngIf="ingredientItem.quantity" class="amount">{{
           ingredientItem.quantity
-        }}</span>
-        <span *ngIf="ingredientItem.quantityType" class="type"
-          >{{ ingredientItem.quantityType }}
-        </span>
+        }}
+      <span *ngIf="ingredientItem.quantityType" class="type">{{ ingredientItem.quantityType }}
+      </span>
+      </div>
+        
         <div class="quantity">{{ ingredientItem.ingredient }}</div>
       </div>
       <button

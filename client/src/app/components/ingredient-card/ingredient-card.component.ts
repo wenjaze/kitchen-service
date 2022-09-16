@@ -9,6 +9,9 @@ import { IngredientItem } from '../recipe-tile/recipe-tile.component';
 })
 export class IngredientCardComponent implements OnInit,OnDestroy {
 
+    /**
+     * This indicates if this ingredient is on a recipeCard or not.
+     */
     @Input() recipeCard!:boolean;
     @Input() availableIngredients!:IngredientItem[];
     @Output() removeFired: EventEmitter<IngredientItem> = new EventEmitter<IngredientItem>();
