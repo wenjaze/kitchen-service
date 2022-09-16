@@ -1,0 +1,36 @@
+{
+  "name": "node-torrent-server",
+  "version": "1.0.0",
+  "description": "App to download torrent files flexibly.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "lint": "eslint src/"
+  },
+  "keywords": [
+    "node",
+    "app",
+    "torrent",
+    "client"
+  ],
+  "author": "rg",
+  "license": "ISC",
+  "dependencies": {
+    "drag-drop": "^7.2.0",
+    "node-torrent": "^0.2.2",
+    "nodemon": "^2.0.19",
+    "webtorrent": "^1.8.30",
+    "webtorrent-hybrid": "^5.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7"
+  }
+}
