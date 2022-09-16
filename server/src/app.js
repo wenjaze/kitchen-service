@@ -2,13 +2,18 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 const middleware = require('./middleware');
 
 const PORT = process.env.PORT || 1337;
 const app = express();
 
-app.use(morgan('common'));
+const appLogStream = fs.createWriteStream(path.join(__dirname, '/logs/app.log'), { flags: 'a' });
+
+app.use(morgan('combined', { stream: appLogStream }));
 app.use(helmet());
+// frontend origin
 app.use(cors({
   origin: 'http://localhost:4200',
 }));
