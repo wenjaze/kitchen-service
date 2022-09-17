@@ -2,6 +2,22 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+const defaultRequiredDate = {
+  type: Date,
+  default: Date.now,
+  required: true,
+};
+
+const requiredString = {
+  type: String,
+  required: true,
+};
+
+const requiredBoolean = {
+  type: Boolean,
+  required: true,
+};
+
 const IngredientName = {
   val: {
     type: String,
@@ -21,10 +37,7 @@ const IngredientName = {
       'erős pista'],
     required: true,
   },
-  viewVal: {
-    type: String,
-    required: true,
-  },
+  viewVal: requiredString,
 };
 
 const QuantityType = {
@@ -38,35 +51,25 @@ const QuantityType = {
 
 const Ingredient = {
   quantityType: QuantityType,
-  quantity: Number,
+  quantity: {
+    type: Number,
+    required: false,
+  },
   ingredientName: IngredientName,
 };
 
 const recipeSchema = new Schema({
   id: mongoose.ObjectId,
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: false,
-  },
+  title: requiredString,
+  description: requiredString,
   ingredients: [Ingredient],
-  href: {
-    type: String,
-    required: false,
-  },
-  image: {
-    type: String,
-    required: true,
-  },
-  vegetarian: {
-    type: Boolean,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    required: true,
-  },
-});
+  href: requiredString,
+  image: requiredString,
+  vegetarian: requiredBoolean,
+  created_at: defaultRequiredDate,
+  updatead_at: defaultRequiredDate,
+}, { timestamps: true });
+
+const Recipe = mongoose.model('Recipe', recipeSchema);
+
+module.exports = Recipe;
