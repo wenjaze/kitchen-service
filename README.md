@@ -7,3 +7,22 @@ The app also helps staying cost-effient, while still trying to have diverse cuis
 - create db
 - connect with user interface
 - swagger ui
+
+## Models:
+- #### Recipe  
+```
+{
+    "title": "Rántotta",
+    "description": "-",
+    "ingredients": [
+        {
+            "quantityType":"db",
+            "quantity": "3",
+            "ingredient":"tojás"
+        }
+    ],
+    "href":"example.com/recipe",
+    "image":"example.com/photo",
+    "vegetarian":"true"
+}
+```
