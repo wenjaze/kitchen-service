@@ -15,9 +15,10 @@ const PORT = process.env.NODE_ENV === 'production' ? process.env.PORT_PROD : pro
 
 const app = express();
 
-/* mongoose.connect(process.env.DEV_DATABASE_URL, {
+mongoose.connect(process.env.DEV_DATABASE_URL, {
   useNewUrlParser: true,
-}); */
+  useUnifiedTopology: true,
+});
 
 const appLogStream = fs.createWriteStream(path.join(__dirname, '/logs/app.log'), { flags: 'a' });
 
@@ -39,5 +40,5 @@ app.use(middleware.notFound);
 app.use(middleware.errorHandler);
 
 app.listen(PORT, () => {
-	console.log(`Listening at http://localhost:${PORT}`); // eslint-disable-line
+  console.log(`Listening at http://localhost:${PORT}`); // eslint-disable-line
 });
