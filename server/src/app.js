@@ -15,17 +15,17 @@ const PORT = process.env.NODE_ENV === 'production' ? process.env.PORT_PROD : pro
 
 const app = express();
 
-mongoose.connect(process.env.DEV_DATABASE_URL, {
+mongoose.connect(process.env.DATABASE_URL_DEV, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-const appLogStream = fs.createWriteStream(path.join(__dirname, '/logs/app.log'), { flags: 'a' });
+const appLogStream = fs.createWriteStream(path.join(__dirname, '/logs/app.log'));
 
 // Console logging
-app.use(morgan('common'));
 // Logging to file
-app.use(morgan('common', { stream: appLogStream }));
+app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]'));
+app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]', { stream: appLogStream }));
 app.use(helmet());
 // Frontend origin
 app.use(cors({
@@ -33,7 +33,6 @@ app.use(cors({
 }));
 // JSON body parsing middleware
 app.use(express.json());
-
 app.use('/api/v1/recipes', recipes);
 
 app.use(middleware.notFound);

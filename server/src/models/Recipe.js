@@ -13,6 +13,12 @@ const requiredString = {
   required: true,
 };
 
+const requiredUniqueString = {
+  type: String,
+  required: true,
+  unique: true,
+};
+
 const requiredBoolean = {
   type: Boolean,
   required: true,
@@ -60,14 +66,12 @@ const Ingredient = {
 
 const recipeSchema = new Schema({
   id: mongoose.ObjectId,
-  title: requiredString,
+  title: requiredUniqueString,
   description: requiredString,
   ingredients: [Ingredient],
-  href: requiredString,
-  image: requiredString,
+  href: requiredUniqueString,
+  image: requiredUniqueString,
   vegetarian: requiredBoolean,
-  created_at: defaultRequiredDate,
-  updatead_at: defaultRequiredDate,
 }, { timestamps: true });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
