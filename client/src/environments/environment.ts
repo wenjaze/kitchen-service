@@ -1,9 +1,13 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+const REST_API_PORT:number = 1337
 
 export const environment = {
-  production: false
+  production: false,
+  PORT:4200,
+  REST_API_PORT: REST_API_PORT,
+  REST_API_BASE_URL: `http://localhost:${REST_API_PORT}/api/v1`
 };
 
 /*

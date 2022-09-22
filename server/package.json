@@ -1,19 +1,20 @@
 {
-  "name": "node-torrent-server",
+  "name": "kitchen-service-server",
   "version": "1.0.0",
-  "description": "App to download torrent files flexibly.",
+  "description": "Assistant for efficent cooking, and shopping.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
+    "gen:api": "mtgen ./src/models -p .",
     "lint": "eslint src/"
   },
   "keywords": [
     "node",
     "app",
-    "torrent",
-    "client"
+    "food",
+    "kitchen"
   ],
   "author": "rg",
   "license": "ISC",
@@ -26,8 +27,11 @@
     "express": "^4.18.1",
     "helmet": "^6.0.0",
     "mongoose": "^6.6.1",
+    "mongoose-to-swagger": "^1.4.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.19"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mongoose-tsgen": "^9.0.8"
+  }
 }

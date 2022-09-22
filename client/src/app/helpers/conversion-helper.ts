@@ -1,11 +1,9 @@
-import { Input } from "@angular/core";
-import { RecepieSearchComponent } from "../components/recepie-search/recepie-search.component";
-import { Ingredient, IngredientItem, IngredientItemRaw, QuantityType, Recipe, RecipeJSON } from "../components/recipe-tile/recipe-tile.component";
+
 
 
 export class ConversionHelper {
 
-    public static jsonToRecipe(json:any) {
+    /* public static jsonToRecipe(json:any) {
         let recipesData: Recipe[] = [];
 
         let recipesJson: RecipeJSON = {
@@ -44,7 +42,7 @@ export class ConversionHelper {
         })
 
         return recipesData
-    }
+    } */
     
     
     
