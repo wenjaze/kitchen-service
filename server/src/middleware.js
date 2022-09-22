@@ -10,8 +10,13 @@ const notFound = (req, res, next) => {
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (error, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+  if (error.name === 'SyntaxError') {
+    res.status(422);
+  } else {
+    res.status(statusCode);
+  }
   req.error = error;
-  res.status(statusCode);
+
   res.json(ResponseModel(false, 'Error occured', req.body, ErrorModel(error.code, error.message, error.name, error.stack)));
 };
 

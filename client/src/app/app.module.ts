@@ -14,12 +14,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    RecipeListComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatSelectModule,
     FormsModule,
-
+    MatExpansionModule,
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ingredients-container {
+    font-size: 1em;
+    font-weight: lighter;
+}
+
+::ng-deep mat-panel-title {
+    font-size: 1.2em !important;
+    font-weight: lighter;
+}
