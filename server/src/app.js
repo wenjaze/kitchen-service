@@ -21,19 +21,31 @@ mongoose.connect(process.env.DATABASE_URL_DEV, {
 });
 
 const appLogStream = fs.createWriteStream(path.join(__dirname, '/logs/app.log'));
+
 morgan.token('error', (req) => {
   if (req.error) { return `${req.error.message} - ${req.error.stack}`; }
 
   return null;
 });
+morgan.token('body', (req) => {
+  if (req) { return JSON.stringify(req.body); }
 
+  return null;
+});
+
+// #region LOG
+// Error logs
+// Console error logging
+app.use(morgan(':error'));
+// File error logging
 app.use(morgan(':error', { stream: appLogStream }));
-
-morgan.token('body', (req) => JSON.stringify(req.body));
-// Console logging
+// Access logs
+// Console access logging
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]\n:body'));
-// File logging
+// File access logging
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]\n:body', { stream: appLogStream }));
+// #endregion LOG
+
 // Security header
 app.use(helmet());
 // Frontend origin
