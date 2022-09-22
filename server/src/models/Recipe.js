@@ -2,12 +2,6 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const defaultRequiredDate = {
-  type: Date,
-  default: Date.now,
-  required: true,
-};
-
 const requiredString = {
   type: String,
   required: true,

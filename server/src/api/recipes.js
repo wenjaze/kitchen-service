@@ -11,18 +11,16 @@ router.post('/all', async (req, res) => {
 });
 
 router.post('/', async (req, res, next) => {
+  let response;
   try {
     const recipe = new Recipe(req.body);
-    let response;
     const recipesWithThisName = await Recipe.findOne({ title: recipe.title });
     if (recipesWithThisName) {
       res.status(422);
       response = ResponseModel(false, 'Recipe with same title already exists.', recipe);
-      res.json(response);
     } else {
       const savedRecipe = await recipe.save();
       response = ResponseModel(true, 'Recipe successfully created.', savedRecipe);
-      res.json(new ResponseModel(true, 'yes', savedRecipe));
     }
   } catch (error) {
     if (error.name === 'ValidationError') {
@@ -30,6 +28,7 @@ router.post('/', async (req, res, next) => {
     }
     next(error);
   }
+  res.json(response);
 });
 
 module.exports = router;
