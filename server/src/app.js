@@ -22,6 +22,10 @@ mongoose.connect(process.env.DATABASE_URL_DEV, {
 
 const appLogStream = fs.createWriteStream(path.join(__dirname, '/logs/app.log'));
 
+morgan.token('error', (req) => `${req.error.message} - ${req.error.stack}`);
+
+app.use(morgan(':error', { stream: appLogStream }));
+
 morgan.token('body', (req) => JSON.stringify(req.body));
 // Console logging
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]\n:body'));
