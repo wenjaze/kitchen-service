@@ -1,3 +1,0 @@
-asd
-
-:leafy-green:

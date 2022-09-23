@@ -4,6 +4,7 @@
         <div class="message">receptek betöltése...</div>
     </ng-container>
 
+    <h1>Receptek:</h1>
     <mat-accordion class="colored" [multi]="true" *ngIf="recipeList">
         <mat-expansion-panel *ngFor="let recipe of recipeList">
             <mat-expansion-panel-header>
@@ -18,14 +19,19 @@
                 "{{recipe.description}}"
             </mat-panel-description>
             <div class="content">
+                <img *ngIf="recipe.href" class="recipe-image" src="{{ recipe.image }}" />
                 <div class="ingredients-container">
-                    <h4>Hozzávalók</h4>
+                    <h2>Hozzávalók</h2>
                     <div *ngFor="let ingredient of recipe.ingredients" class="ingredient">
-                        {{ingredient.quantity +' '+ ingredient.quantityType +' '+ ingredient.ingredientName.viewVal}}
+                        {{showIfExists(ingredient.quantity) +' '+ showIfExists(ingredient.quantityType) +' '+ showIfExists(ingredient.ingredientName.viewVal)}}
                     </div>
-                    <a href="{{ recipe.href }}" target="_blank" rel="noreferrer noopener">elkészítési javaslat</a>
-                    <img *ngIf="recipe.href" class="recipe-image" src="{{ recipe.image }}" />
+                    <a href="{{ recipe.href }}" target="_blank" rel="noreferrer noopener">
+                        <button mat-raised-button color="primary" class="showRecipe">
+                            <mat-icon>launch</mat-icon> Mutasd a receptet
+                        </button>
+                    </a>
                 </div>
+
             </div>
         </mat-expansion-panel>
     </mat-accordion>

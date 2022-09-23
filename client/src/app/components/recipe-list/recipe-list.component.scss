@@ -3,10 +3,21 @@
     margin: 0 auto;
 }
 
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.ingredient {
+    margin-bottom: 10px;
+}
+
 .ingredients-container {
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: lighter;
     align-items: center;
+    padding-left: 2%;
 }
 
 .mat-expansion-panel-header-description {
@@ -15,14 +26,15 @@
 }
 
 ::ng-deep mat-panel-title {
-    font-size: 1.2em !important;
+    font-size: 2em !important;
     font-weight: lighter;
     margin-right: 20%;
-    text-align: center !important;
+    text-align: left !important;
+    height: 50px;
+    width: 300px;
 }
 
 ::ng-deep mat-panel-description {
-    font-style: italic;
 }
 
 ::ng-deep mat-expansion-panel {
@@ -34,6 +46,9 @@
 }
 
 // This fixes panel focus problem
+.mat-expansion-panel-header {
+    height: 100px;
+}
 
 .mat-expansion-panel-header.mat-expanded:focus {
     background: rgba($color: rgb(255, 255, 255), $alpha: 0) !important;
@@ -43,7 +58,19 @@
     background: rgba($color: rgb(255, 255, 255), $alpha: 0) !important;
 }
 
-@media screen and (max-width: 600px) {
+::ng-deep mat-panel-description.mobile {
+    display: none !important;
+}
+
+img.recipe-image {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px !important;
+    width: 300px;
+    height: auto;
+}
+
+@media screen and (max-width: 1000px) {
     ::ng-deep mat-panel-description.wide {
         display: none !important;
     }
@@ -55,24 +82,44 @@
     ::ng-deep mat-panel-title {
         width: 100%;
         margin: 0 auto;
+        font-size: 1.2em;
     }
 
     img.recipe-image {
-        border-radius: 50% !important;
-        width: 150px;
+        width: 200px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .mat-expansion-panel-header {
+        height: 50px;
+    }
+
+    .ingredients-container {
+        font-size: 1em;
+    }
+
+    .ingredient {
+        margin-bottom: 5px;
     }
 }
 
-h4 {
-    margin-bottom: 0;
-}
-
-img.recipe-image {
-    border-radius: 50% !important;
-    width: 300px 
+h2 {
+    margin-bottom:5px;
+    border-bottom: 1px solid black;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+.showRecipe {
+    margin: 0 auto;
 }

@@ -20,4 +20,11 @@ export class RecipeListComponent implements OnInit {
     console.log
   }
 
+
+  showIfExists(val:any){
+    if (val) {
+      return val;
+    }
+    else return "";
+  }
 }
