@@ -2,7 +2,7 @@
 
 @include mat.core();
 
-$my-primary: mat.define-palette(mat.$lime-palette, A200);
+$my-primary: mat.define-palette(mat.$orange-palette, A700);
 $my-accent: mat.define-palette(mat.$amber-palette, 100, 400, 900);
 $my-warn: mat.define-palette(mat.$red-palette);
 $kitchen-service-theme: mat.define-light-theme(

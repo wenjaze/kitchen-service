@@ -1,38 +1,44 @@
-<div class="recipe-list-container">
-    <ng-container style="margin: 0 auto;" *ngIf="!recipeList">
-        <mat-spinner></mat-spinner>
-        <div class="message">receptek betöltése...</div>
-    </ng-container>
+<div class="recipe-list-container flex rows center">
+    <div class="flex cols center" *ngIf="!recipeList">
+        <mat-spinner>
+        </mat-spinner>
+        <div class="message">Receptek betöltése...</div>
+    </div>
 
-    <h1>Receptek:</h1>
-    <mat-accordion class="colored" [multi]="true" *ngIf="recipeList">
-        <mat-expansion-panel *ngFor="let recipe of recipeList">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{recipe.title}}
-                </mat-panel-title>
-                <mat-panel-description class="wide">
-                    {{recipe.description}}
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-panel-description class="mobile">
-                "{{recipe.description}}"
-            </mat-panel-description>
-            <div class="content">
-                <img *ngIf="recipe.href" class="recipe-image" src="{{ recipe.image }}" />
-                <div class="ingredients-container">
-                    <h2>Hozzávalók</h2>
-                    <div *ngFor="let ingredient of recipe.ingredients" class="ingredient">
-                        {{showIfExists(ingredient.quantity) +' '+ showIfExists(ingredient.quantityType) +' '+ showIfExists(ingredient.ingredientName.viewVal)}}
+    <ng-container *ngIf="recipeList">
+        <div>
+            <h1>Receptek</h1>
+            <mat-accordion class="colored" [multi]="true" *ngIf="recipeList">
+                <mat-expansion-panel *ngFor="let recipe of recipeList">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{recipe.title}}
+                        </mat-panel-title>
+                        <mat-panel-description class="wide">
+                            "{{recipe.description}}""
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-panel-description class="mobile">
+                        "{{recipe.description}}"
+                    </mat-panel-description>
+                    <div class="content">
+                        <img *ngIf="recipe.href" class="recipe-image" src="{{ recipe.image }}" />
+                        <div class="ingredients-container">
+                            <h2>Hozzávalók</h2>
+                            <div *ngFor="let ingredient of recipe.ingredients" class="ingredient">
+                                {{ showIfExists(ingredient.quantity) +' '+ showIfExists(ingredient.quantityType) +' '+
+                                showIfExists(ingredient.ingredientName.viewVal) }}
+                            </div>
+                            <a href="{{ recipe.href }}" target="_blank" rel="noreferrer noopener">
+                                <button mat-raised-button color="primary" class="showRecipe">
+                                    <mat-icon>launch</mat-icon> Mutasd a receptet
+                                </button>
+                            </a>
+                        </div>
+
                     </div>
-                    <a href="{{ recipe.href }}" target="_blank" rel="noreferrer noopener">
-                        <button mat-raised-button color="primary" class="showRecipe">
-                            <mat-icon>launch</mat-icon> Mutasd a receptet
-                        </button>
-                    </a>
-                </div>
-
-            </div>
-        </mat-expansion-panel>
-    </mat-accordion>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </ng-container>
 </div>

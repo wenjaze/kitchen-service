@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const recipes = require('./api/recipes');
+const ingredients = require('./api/ingredients');
 const middleware = require('./middleware');
 
 const PORT = process.env.NODE_ENV === 'production' ? process.env.PORT_PROD : process.env.PORT_DEV;
@@ -55,6 +56,7 @@ app.use(cors({
 // JSON body parsing middleware
 app.use(express.json());
 app.use('/api/v1/recipes', recipes);
+app.use('/api/v1/ingredients', ingredients);
 
 app.use(middleware.notFound);
 app.use(middleware.errorHandler);

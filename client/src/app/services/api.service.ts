@@ -12,40 +12,67 @@ import { Recipe } from '../rest/models/mongoose.gen';
 export class ApiService {
   private url = environment.REST_API_BASE_URL;
 
-  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept','application/json');
+  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
 
   constructor(private http: HttpClient) { }
 
   // Create recipe
-
-  public createRecipe(data:any): Observable<any> {
-
+  public createRecipe(data: any): Observable<Recipe> | undefined {
     let url = `${this.url}/recipes/create`;
-
-    return this.http.post(url, data).pipe(map((x)=>{console.log(x)}));
-
+    let createResult;
+    try {
+      let createResult = this.http.post(url, data).pipe(map((x) => { console.log(x) }));
+    } catch (error: any) {
+      this.handleError(error);
+    }
+    if (createResult != undefined) {
+      return createResult;
+    } else {
+      throw new Error("Could not create recipe.");
+    }
   }
 
-  // Get all recipes
+/*   // Get all recipes
+  public getRecipes(): Observable<Recipe[]> {
+    let recipes;
+    try {
+      recipes = this.http.get<Recipe[]>(`${this.url}/recipes/get`);
+    } catch (error: any) {
+      this.handleError(error);
+    }
+    if (recipes != undefined) {
+      return recipes;
+    } else {
+      throw new Error("Could not create recipe.");
+    }
+  }; */
 
-  public getRecipes() {
+  public getRecipes(): Observable<Recipe[]> {
+    return this.handleCall<Recipe[]>(this.http.get<Recipe[]>(`${this.url}/recipes/get`))
+  }
 
-    return this.http.get<Recipe[]>(`${this.url}/recipes/get`);
 
-  };
-
+  private handleCall<T>(httpMethod: Observable<T>): Observable<T> {
+    let result;
+    try {
+      result = httpMethod;
+    } catch (error: any) {
+      this.handleError(error);
+    }
+    if (result != undefined) {
+      return result;
+    } else {
+      throw new Error(`Could not execute call:${httpMethod.toString()}`);
+    }
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error);
     } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
       console.error(
         `Backend returned code ${error.status}, body was: `, error.error);
     }
-    // Return an observable with a user-facing error message.
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 }

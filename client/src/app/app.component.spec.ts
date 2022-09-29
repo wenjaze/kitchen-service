@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'whatcanicook'`, () => {
+  it(`should have as title 'kitchen-service-client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('whatcanicook');
+    expect(app.title).toEqual('kitchen-service-client');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('whatcanicook app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('kitchen-service-client app is running!');
   });
 });

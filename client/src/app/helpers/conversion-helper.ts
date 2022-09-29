@@ -1,9 +1,6 @@
-
-
-
 export class ConversionHelper {
 
-    /* public static jsonToRecipe(json:any) {
+  /* public static jsonToRecipe(json:any) {
         let recipesData: Recipe[] = [];
 
         let recipesJson: RecipeJSON = {
@@ -43,7 +40,5 @@ export class ConversionHelper {
 
         return recipesData
     } */
-    
-    
-    
+
 }

@@ -3,28 +3,23 @@ import { Recipe } from 'src/app/rest/models/mongoose.gen';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-recipe-list',
-  templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.scss']
+	selector: 'app-recipe-list',
+	templateUrl: './recipe-list.component.html',
+	styleUrls: ['./recipe-list.component.scss']
 })
 export class RecipeListComponent implements OnInit {
 
-  recipeList!: Recipe[];
+	@Input() recipeList!: Recipe[];
 
-  constructor(private apiService: ApiService) {
+	constructor() { }
 
-  }
+	ngOnInit(): void {
+	}
 
-  ngOnInit(): void {
-    this.apiService.getRecipes().subscribe((recipes) => this.recipeList = recipes);
-    console.log
-  }
-
-
-  showIfExists(val:any){
-    if (val) {
-      return val;
-    }
-    else return "";
-  }
+	showIfExists(val: any) {
+		if (val) {
+			return val;
+		}
+		else return "";
+	}
 }

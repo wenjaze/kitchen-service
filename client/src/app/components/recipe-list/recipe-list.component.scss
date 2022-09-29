@@ -1,6 +1,14 @@
+@import "~@angular/material/theming";
+@import "../../../assets/scss/_theme.scss";
+
 .container {
     width: 100%;
     margin: 0 auto;
+}
+
+.loading-screen {
+    margin: 0 auto;
+    display: flex;
 }
 
 .content {
@@ -26,15 +34,12 @@
 }
 
 ::ng-deep mat-panel-title {
-    font-size: 2em !important;
+    font-size: 1.5em !important;
     font-weight: lighter;
     margin-right: 20%;
     text-align: left !important;
     height: 50px;
     width: 300px;
-}
-
-::ng-deep mat-panel-description {
 }
 
 ::ng-deep mat-expansion-panel {
@@ -62,6 +67,11 @@
     display: none !important;
 }
 
+::ng-deep mat-panel-description {
+    font-style: italic;
+    color: rgba($color: #000000, $alpha: 0.7) !important;
+}
+
 img.recipe-image {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -77,12 +87,15 @@ img.recipe-image {
 
     ::ng-deep mat-panel-description.mobile {
         display: block !important;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: rgba($color: #000000, $alpha: 0.05);
     }
 
     ::ng-deep mat-panel-title {
         width: 100%;
         margin: 0 auto;
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
     img.recipe-image {
@@ -111,7 +124,7 @@ img.recipe-image {
 }
 
 h2 {
-    margin-bottom:5px;
+    margin-bottom: 5px;
     border-bottom: 1px solid black;
 }
 
@@ -122,4 +135,14 @@ a {
 
 .showRecipe {
     margin: 0 auto;
+}
+
+h1 {
+    text-transform: uppercase;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: light;
+    margin-bottom: 10px;
+    font-size: 2em;
+    color: rgba($color: #4a4a4a, $alpha: 1);
 }

@@ -1,15 +1,15 @@
 const { Router } = require('express');
 const { ResponseModel } = require('../models/req/ResponseModel');
 
-const Recipe = require('../models/Recipe');
+const Ingredient = require('../models/Ingredient');
 
 const router = Router();
 
 router.get('/get', async (req, res, next) => {
   try {
-    const recipes = await Recipe.find();
+    const ingredients = await Ingredient.find();
     res.status(200);
-    res.json(recipes);
+    res.json(ingredients);
   } catch (error) {
     next(error);
   }
@@ -17,9 +17,10 @@ router.get('/get', async (req, res, next) => {
 
 router.post('/create', async (req, res, next) => {
   try {
-    const recipe = new Recipe(req.body);
-    const savedRecipe = await recipe.save();
-    const response = ResponseModel(true, 'Recipe successfully created.', savedRecipe);
+    const ingredient = new Ingredient(req.body);
+    const savedIngredient = await ingredient.save();
+    const response = ResponseModel(true, 'Ingredient successfully created.', savedIngredient);
+
     res.status(200);
     res.json(response);
   } catch (error) {
