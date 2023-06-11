@@ -19,6 +19,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AddIngredientComponent } from './components/add-ingredient/add-ingredient.component';
+import { IngredientListComponent } from './components/ingredient-list/ingredient-list.component';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { StringPlusSpaceOrUndefinedPipe } from './pipes/stringPlusSpaceOrUndefined.pipe';
 
 
 @NgModule({
@@ -27,6 +30,8 @@ import { AddIngredientComponent } from './components/add-ingredient/add-ingredie
     HomeComponent,
     RecipeListComponent,
     AddIngredientComponent,
+    IngredientListComponent,
+    StringPlusSpaceOrUndefinedPipe
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { AddIngredientComponent } from './components/add-ingredient/add-ingredie
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatBottomSheetModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

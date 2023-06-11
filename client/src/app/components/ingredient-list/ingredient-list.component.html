@@ -1,0 +1,10 @@
+<div class="ingredient-card">
+  {{
+    (ingredient.quantityNumber | stringPlusSpaceOrUndefined) +
+      (ingredient.quantityName | stringPlusSpaceOrUndefined) +
+      ingredient.ingredient.ingredientName.viewVal
+  }}
+  <button mat-icon-button (click)="emitRemoveEvent()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

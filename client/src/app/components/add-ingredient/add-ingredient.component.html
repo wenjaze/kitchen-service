@@ -1,19 +1,52 @@
-<div [formGroup]="ingredientFormGroup">
-  <mat-form-field class="ingredient-type">
-    <mat-label>Favorite food</mat-label>
-    <mat-select [(ngModel)]="selectedIngredient" [ngModelOptions]="{standalone : true}" name="food">
-      <mat-option
-        *ngFor="let ingredient of ingredients"
-        [value]="ingredient.ingredientName.val"
-      >
+<div class="ingredient-container">
+  <div class="ingredients-title">Hozzávalók hozzáadása</div>
+  <mat-form-field class="ingredient-name">
+    <mat-label>Hozzávaló</mat-label>
+    <mat-select
+      [(ngModel)]="selectedIngredient"
+      (ngModelChange)="getPossibleQuantityTypes()"
+    >
+      <mat-option *ngFor="let ingredient of ingredients" [value]="ingredient">
         {{ ingredient.ingredientName.viewVal }}
       </mat-option>
+      <mat-error *ngIf="this.selectedIngredient === undefined"
+        >Kérem válasszon a listából!</mat-error
+      >
     </mat-select>
   </mat-form-field>
-  <input
-    matInput
-    type="number"
-    formControlName="ingredientQuantity"
-    placeholder="Mennyiség"
-  />
+  <div class="quantity-container">
+    <mat-form-field class="ingredient-quantity-number">
+      <input
+        [disabled]="hasNoQuantity()"
+        matInput
+        type="number"
+        [(ngModel)]="selectedIngredientNumber"
+        placeholder="Mennyiség"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="ingredient-quantity-type">
+      <mat-label>Mennyiség egység</mat-label>
+      <mat-select
+        [disabled]="hasNoQuantity()"
+        [(ngModel)]="selectedQuantityType"
+      >
+        <mat-option
+          *ngFor="let quantityType of this.getPossibleQuantityTypes()"
+          [value]="quantityType"
+        >
+          {{ quantityType }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      [disabled]="!isFormValid()"
+      mat-icon-button
+      class="add-ingredient-button"
+      color="primary"
+      (click)="addIngredient()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </div>

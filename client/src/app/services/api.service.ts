@@ -48,7 +48,7 @@ export class ApiService {
 
   public getIngredients(): Observable<Ingredient[]> {
     return this.handleCall<Ingredient[]>(
-      this.http.get<Ingredient[]>(`${this.url}/ingredients/getByName`)
+      this.http.get<Ingredient[]>(`${this.url}/ingredients/get`)
     );
   }
 

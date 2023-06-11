@@ -35,7 +35,7 @@ export type Ingredient = {
       | "erőspista";
     viewVal: string;
   };
-  quantityType?: "db" | "tk" | "ek" | "g" | "ml";
+  quantityTypes?: string[];
   _id: mongoose.Types.ObjectId;
   updatedAt?: Date;
   createdAt?: Date;
@@ -138,7 +138,7 @@ export type IngredientDocument = mongoose.Document<
         | "erőspista";
       viewVal: string;
     };
-    quantityType?: "db" | "tk" | "ek" | "g" | "ml";
+    quantityTypes?: string[];
     _id: mongoose.Types.ObjectId;
     updatedAt?: Date;
     createdAt?: Date;
@@ -153,7 +153,7 @@ export type IngredientDocument = mongoose.Document<
  * ```
  */
 export type RecipeIngredient = {
-  quantityType?: "db" | "tk" | "ek" | "g" | "ml";
+  quantityType?: string[];
   quantity?: number;
   ingredientName: {
     val:
@@ -261,7 +261,7 @@ export type RecipeSchema = mongoose.Schema<
  * Type of `RecipeDocument["ingredients"]` element.
  */
 export type RecipeIngredientDocument = mongoose.Types.Subdocument & {
-  quantityType?: "db" | "tk" | "ek" | "g" | "ml";
+  quantityType?: string[];
   quantity?: number;
   ingredientName: {
     val:

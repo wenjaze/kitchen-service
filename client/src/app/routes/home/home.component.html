@@ -1,5 +1,8 @@
 <div class="add-ingredient-container">
-    <app-add-ingredient></app-add-ingredient>
+    <app-add-ingredient [ingredients]="this.ingredients" (ingredientToAdd)="getIngredient($event)"></app-add-ingredient>
+    <div class="ingredient-list">
+        <app-ingredient-list *ngFor="let ingredient of ownedIngredients" [ingredient]="ingredient" (removeIngredient)="removeIngredient($event)"></app-ingredient-list>
+    </div>
 </div>
 <div class="recipe-list-container">
     <app-recipe-list [recipeList]="recipes"></app-recipe-list>
