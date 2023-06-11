@@ -15,6 +15,23 @@ router.get('/get', async (req, res, next) => {
   }
 });
 
+router.post('/getByName', async (req, res, next) => {
+  try {
+    const searchQuery = {
+      $or: [
+        { 'ingredientName.val': { $regex: req.body.name, $options: 'i' } },
+        { 'ingredientName.viewVal': { $regex: req.body.name, $options: 'i' } },
+      ],
+    };
+
+    const recipes = await Ingredient.find(searchQuery);
+    res.status(200);
+    res.json(recipes);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post('/create', async (req, res, next) => {
   try {
     const ingredient = new Ingredient(req.body);

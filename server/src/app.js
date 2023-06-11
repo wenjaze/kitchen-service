@@ -6,7 +6,9 @@ const fs = require('fs');
 const path = require('path');
 // eslint-disable-next-line no-unused-vars
 const mongoose = require('mongoose');
-require('dotenv').config();
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const recipes = require('./api/recipes');
 const ingredients = require('./api/ingredients');

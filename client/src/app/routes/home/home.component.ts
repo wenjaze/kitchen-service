@@ -11,9 +11,13 @@ export class HomeComponent implements OnInit {
 
   constructor(private apiService:ApiService) { }
   recipes !: Recipe[];
+  
 
   ngOnInit(): void {
-    
+    this.apiService.getRecipes().subscribe((recipes) => {
+      this.recipes = recipes;
+    });
   }
+  
 
 }

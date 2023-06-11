@@ -1,3 +1,19 @@
-<mat-form-field class="ingredient-type">
-    <input matInput placeholder="label" value="value">
-</mat-form-field>
+<div [formGroup]="ingredientFormGroup">
+  <mat-form-field class="ingredient-type">
+    <mat-label>Favorite food</mat-label>
+    <mat-select [(ngModel)]="selectedIngredient" [ngModelOptions]="{standalone : true}" name="food">
+      <mat-option
+        *ngFor="let ingredient of ingredients"
+        [value]="ingredient.ingredientName.val"
+      >
+        {{ ingredient.ingredientName.viewVal }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <input
+    matInput
+    type="number"
+    formControlName="ingredientQuantity"
+    placeholder="Mennyiség"
+  />
+</div>
